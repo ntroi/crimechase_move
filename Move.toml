@@ -1,0 +1,16 @@
+[package]
+name = "NtroiC3"
+version = "1.0.1"
+authors = []
+upgrade_policy = "compatible"
+
+[addresses]
+crimechase = '_'
+[dev-addresses]
+crimechase = '0x123'
+
+[dependencies]
+AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", rev = "main", subdir = "aptos-move/framework/aptos-framework"}
+AptosTokenObjects = {git = "https://github.com/aptos-labs/aptos-core.git", rev = "main", subdir = "aptos-move/framework/aptos-token-objects"}
+
+[dev-dependencies]
