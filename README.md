@@ -14,18 +14,18 @@ The CrimeChase smart contract is designed with the following modular structure. 
 
 ```mermaid
 graph LR
-    A[User Account] -- Sends Transaction --> B{CrimeChase Contract (Aptos)};
-    B --> C[Token Module];
-    B --> D[Inventory Module];
-    B --> E[Certification Center Module];
+    A[User Account] -- Sends Transaction --> B{CrimeChase Contract (Aptos)}
+    B --> C[Token Module]
+    B --> D[Inventory Module]
+    B --> E[Certification Center Module]
 
-    C -- Manages NFTs --> F[(NFT Object)];
-    D -- Manages Items --> G[(Item Object)];
-    E -- Manages Certs --> H[(Certification Object)];
+    C -- Manages NFTs --> F[(NFT Object)]
+    D -- Manages Items --> G[(Item Object)]
+    E -- Manages Certs --> H[(Certification Object)]
 
-    A -- Owns/Interacts --> F;
-    A -- Owns/Interacts --> G;
-    A -- Owns/Interacts --> H;
+    A -- Owns/Interacts --> F
+    A -- Owns/Interacts --> G
+    A -- Owns/Interacts --> H
 
     style B fill:#f9f,stroke:#333,stroke-width:2px
     style C fill:#ccf,stroke:#333,stroke-width:1px
