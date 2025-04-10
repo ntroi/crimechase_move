@@ -2,7 +2,7 @@
 
 # CrimeChase NFT Project
 
-[![License](https://img.shields.io/badge/license-Apache-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache-green.svg)](LICENSE.txt)
 
 **CrimeChase** is a multi-functional NFT project built on the Aptos blockchain. It provides a comprehensive smart contract system for the creation, management, and tracking of digital assets (NFTs, items, certificates), supporting a secure and efficient on-chain experience.
 
@@ -57,7 +57,7 @@ flowchart BT
     NFT3:::nft
 ```
 
-### crimechanse_token:
+### crimechase_token:
 - [Aptos Digital Asset(DA)](https://aptos.dev/en/build/smart-contracts/digital-asset) standard is followed.
 - **Core Function**: Manages the entire lifecycle of NFTs, including creation, transfer, and burning.
 - **Characteristics**:
@@ -79,7 +79,7 @@ flowchart BT
 
 ### Clone the Repository:
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/ntroi/crimechase_move
 cd crimechase_move
 ```
 
@@ -92,7 +92,7 @@ cd crimechase_move
   - Change the package name from `your_package_name` to your actual project name  
 ```toml
 [package]
-name = "crimechase" # Change to your project name
+name = "your_package_name" # Change to your project name
 version = "1.0.1"
 authors = []
 upgrade_policy = "compatible"
@@ -139,4 +139,4 @@ Each module includes test cases covering key functionalities such as:
 
 ## License
 
-This project is distributed under the [Apache 2.0](https://github.com/aptos-labs/aptos-core/blob/main/LICENSE).
+This project is distributed under the [Apache 2.0](LICENSE.txt).
