@@ -98,6 +98,25 @@ authors = []
 upgrade_policy = "compatible"
 ```
 
+## Development
+
+### Compile:
+```bash
+# Addr=<your_account_address>
+aptos move compile --named-addresses crimechase=$Addr
+```
+or
+```bash
+# Addr=<your_account_address>
+aptos move compile --named-addresses crimechase=$PROFILE --profile=$PROFILE
+```
+
+### Run Tests:
+(Can use sh-scripts/move_tests.sh script)
+```bash
+aptos move test
+```
+
 ### Deploy the Contract:
 - Run the sh-scripts/move_publish.sh script or use the command below (Requires PROFILE environment variable).
 ```bash
@@ -109,23 +128,6 @@ aptos move publish --named-addresses crimechase=$Addr --profile $PROFILE --assum
 or
 ```bash
 aptos move publish --named-addresses crimechase=$PROFILE --profile $PROFILE --assume-yes
-```
-
-### Interact with the System:
-Use Aptos CLI or SDKs to call functions on the deployed contract.
-
-## Development
-
-### Compile:
-```bash
-# Addr=<your_account_address>
-aptos move compile --named-addresses crimechase=$Addr
-```
-
-### Run Tests:
-(Can use sh-scripts/move_tests.sh script)
-```bash
-aptos move test
 ```
 
 ## Testing
