@@ -72,72 +72,72 @@ module crimechase::certification_center_v1{
         signer::address_of(caller) == @crimechase
     }
 
-    // // Unit test for issue function
-    // #[test]
-    // public fun test_issue_certificate() {
-    //     let admin = create_signer(@crimechase);
-    //     let recipient = create_account();
-    //     let recipient_signer = create_signer(recipient);
+    // Unit test for issue function
+    #[test]
+    public fun test_issue_certificate() {
+        let admin = create_signer(@crimechase);
+        let recipient = create_account();
+        let recipient_signer = create_signer(recipient);
 
-    //     // Issue certificate with 1-hour expiration time
-    //     issue(&admin, &recipient_signer, 3_600_000_000);
-    //     let cert = borrow_global<Certificate>(recipient);
-    //     assert!(cert.issuer == signer::address_of(&admin), 100);
-    //     assert!(cert.expiration_date > timestamp::now_microseconds(), 101);
-    // }
+        // Issue certificate with 1-hour expiration time
+        issue(&admin, &recipient_signer, 3_600_000_000);
+        let cert = borrow_global<Certificate>(recipient);
+        assert!(cert.issuer == signer::address_of(&admin), 100);
+        assert!(cert.expiration_date > timestamp::now_microseconds(), 101);
+    }
 
-    // // Unit test for renewing a certificate
-    // #[test]
-    // public fun test_renew_certificate() {
-    //     let admin = create_signer(@crimechase);
-    //     let recipient = create_account();
-    //     let recipient_signer = create_signer(recipient);
+    // Unit test for renewing a certificate
+    #[test]
+    public fun test_renew_certificate() {
+        let admin = create_signer(@crimechase);
+        let recipient = create_account();
+        let recipient_signer = create_signer(recipient);
 
-    //     // Issue a certificate first
-    //     issue(&admin, &recipient_signer, 3_600_000_000);
+        // Issue a certificate first
+        issue(&admin, &recipient_signer, 3_600_000_000);
 
-    //     // Renew certificate with a 2-hour expiration time
-    //     renew(&admin, &recipient_signer, 7_200_000_000);
-    //     let cert = borrow_global<Certificate>(recipient);
-    //     assert!(cert.expiration_date > timestamp::now_microseconds() + 3_600_000_000, 102);
-    // }
+        // Renew certificate with a 2-hour expiration time
+        renew(&admin, &recipient_signer, 7_200_000_000);
+        let cert = borrow_global<Certificate>(recipient);
+        assert!(cert.expiration_date > timestamp::now_microseconds() + 3_600_000_000, 102);
+    }
 
-    // // Unit test for checking authorization
-    // #[test]
-    // public fun test_is_authorized() {
-    //     let admin = create_signer(@crimechase);
-    //     let recipient = create_account();
-    //     let recipient_signer = create_signer(recipient);
+    // Unit test for checking authorization
+    #[test]
+    public fun test_is_authorized() {
+        let admin = create_signer(@crimechase);
+        let recipient = create_account();
+        let recipient_signer = create_signer(recipient);
 
-    //     // Admin should always be authorized
-    //     assert!(is_authorized(&admin), 103);
+        // Admin should always be authorized
+        assert!(is_authorized(&admin), 103);
 
-    //     // Issue a certificate for the recipient
-    //     issue(&admin, &recipient_signer, 3_600_000_000);
+        // Issue a certificate for the recipient
+        issue(&admin, &recipient_signer, 3_600_000_000);
 
-    //     // Recipient should be authorized now
-    //     assert!(is_authorized(&recipient_signer), 104);
+        // Recipient should be authorized now
+        assert!(is_authorized(&recipient_signer), 104);
 
-    //     // Expire the certificate and test authorization
-    //     renew(&admin, &recipient_signer, 0); // Set to no expiration
-    //     assert!(is_authorized(&recipient_signer), 105);
-    // }
+        // Expire the certificate and test authorization
+        renew(&admin, &recipient_signer, 0); // Set to no expiration
+        assert!(is_authorized(&recipient_signer), 105);
+    }
 
-    // // Test case for expired certificate
-    // #[test]
-    // public fun test_expired_certificate() {
-    //     let admin = create_signer(@crimechase);
-    //     let recipient = create_account();
-    //     let recipient_signer = create_signer(recipient);
+    // Test case for expired certificate
+    #[test]
+    public fun test_expired_certificate() {
+        let admin = create_signer(@crimechase);
+        let recipient = create_account();
+        let recipient_signer = create_signer(recipient);
 
-    //     // Issue a certificate with a short expiration time (1 second)
-    //     issue(&admin, &recipient_signer, 1_000_000);
+        // Issue a certificate with a short expiration time (1 second)
+        issue(&admin, &recipient_signer, 1_000_000);
 
-    //     // Wait until expiration
-    //     timestamp::advance_by(2_000_000);
+        // Wait until expiration
+        timestamp::advance_by(2_000_000);
 
-    //     // Check that recipient is no longer authorized
-    //     let success = is_authorized(&recipient_signer);
-    //     assert!(!success, 106);
-    // }
+        // Check that recipient is no longer authorized
+        let success = is_authorized(&recipient_signer);
+        assert!(!success, 106);
+    }
 }

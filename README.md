@@ -87,14 +87,28 @@ cd crimechase_move
 (Use sh-scripts/dev_setup.sh script if needed)
 - Install Aptos CLI and set up a profile (aptos init).
 
-### Deploy the Contract:
-- Modify the addresses in the move/Move.toml file to your account address.
-- Run the sh-scripts/move_publish.sh script or use the command below (Requires PROFILE environment variable).
+### Update Package Configuration:
+- Open the Move.toml file and modify the following:
+  - Change the package name from `your_package_name` to your actual project name  
+```toml
+[package]
+name = "crimechase" # Change to your project name
+version = "1.0.1"
+authors = []
+upgrade_policy = "compatible"
+```
 
+### Deploy the Contract:
+- Run the sh-scripts/move_publish.sh script or use the command below (Requires PROFILE environment variable).
 ```bash
 # PROFILE=your_profile_name (e.g., default, devnet_admin)
 # Addr=<your_account_address>
 aptos move publish --named-addresses crimechase=$Addr --profile $PROFILE --assume-yes
+```
+
+or
+```bash
+aptos move publish --named-addresses crimechase=$PROFILE --profile $PROFILE --assume-yes
 ```
 
 ### Interact with the System:
