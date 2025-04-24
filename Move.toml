@@ -12,7 +12,3 @@ crimechase = '0x123'
 [dependencies]
 AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", rev = "main", subdir = "aptos-move/framework/aptos-framework"}
 AptosTokenObjects = {git = "https://github.com/aptos-labs/aptos-core.git", rev = "main", subdir = "aptos-move/framework/aptos-token-objects"}
-
-[dev-dependencies]
-AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", rev = "test", subdir = "aptos-move/framework/aptos-framework"}
-AptosTokenObjects = {git = "https://github.com/aptos-labs/aptos-core.git", rev = "test", subdir = "aptos-move/framework/aptos-token-objects"}

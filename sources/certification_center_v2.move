@@ -78,7 +78,7 @@ module crimechase::certification_center_v2{
 
         *borrow_mut(&recipient) = expiration_date;
 
-        event::emit(CertificateIssueEvent{
+        event::emit(CertificateRenewEvent{
             issuer: signer::address_of(issuer),
             recipient,
             expiration_time: expiration_time_microsec,
